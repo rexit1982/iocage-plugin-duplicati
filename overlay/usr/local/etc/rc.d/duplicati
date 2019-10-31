@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+# PROVIDE: duplicati
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+# Enable duplicati:
+# sysrc duplicati_enable="YES"
+# 
+# Optional parameters:
+# sysrc duplicati_user="<user to run as>"
+# sysrc duplicati_data_dir="<folder for server data>"
+# sysrc duplicati_web_pass="<password>" **Don't use quotes
+
+. /etc/rc.subr
+
+name="duplicati"
+rcvar="${name}_enable"
+
+load_rc_config $name
+
+: ${duplicati_enable="NO"}
+: ${duplicati_user:="duplicati"}
+: ${duplicati_data_dir:="/config"}
+: ${duplicati_web_pass:="duplicati"}
+
+duplicati_command_args="--webservice-port=8200 --webservice-password=${duplicati_web_pass} --webservice-interface=any --server-datafolder=${duplicati_data_dir}"
+duplicati_command="/usr/local/share/${name}/Duplicati.Server.exe ${duplicati_command_args}"
+pidfile="${duplicati_data_dir}/${name}.pid"
+procname="/usr/local/bin/mono"
+command="/usr/sbin/daemon"
+command_args="-f -p ${pidfile} ${procname} ${duplicati_command}"
+start_precmd=duplicati_precmd
+stop_cmd=duplicati_stopcmd
+
+duplicati_precmd() {
+	export XDG_CONFIG_HOME=${duplicati_data_dir}
+
+	# avoid root user warning
+	export USER=${duplicati_user}
+
+	if [ ! -d ${duplicati_data_dir} ]; then
+		install -d -o ${duplicati_user} ${duplicati_data_dir}
+	fi
+}
+
+duplicati_stopcmd() { /bin/pkill -P $(/bin/cat ${pidfile}); }
+
+run_rc_command "$1"
