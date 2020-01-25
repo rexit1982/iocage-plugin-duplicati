@@ -23,8 +23,9 @@ load_rc_config $name
 : ${duplicati_user:="duplicati"}
 : ${duplicati_data_dir:="/config"}
 : ${duplicati_web_pass:="duplicati"}
+: ${duplicati_port:=8200}
 
-duplicati_command_args="--webservice-port=8200 --webservice-password=${duplicati_web_pass} --webservice-interface=any --server-datafolder=${duplicati_data_dir}"
+duplicati_command_args="--webservice-port=${duplicati_port} --webservice-password=${duplicati_web_pass} --webservice-interface=any --server-datafolder=${duplicati_data_dir}"
 duplicati_command="/usr/local/share/${name}/Duplicati.Server.exe ${duplicati_command_args}"
 pidfile="${duplicati_data_dir}/${name}.pid"
 procname="/usr/local/bin/mono"
