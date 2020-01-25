@@ -1,6 +1,6 @@
 #!/bin/sh
 
-dlurl="https://updates.duplicati.com/beta/duplicati-2.0.4.23_beta_2019-07-14.zip"
+dlurl="https://updates.duplicati.com/beta/duplicati-2.0.5.1_beta_2020-01-18.zip"
 duplicati_dir="/usr/local/share/duplicati"
 duplicati_conf_dir="/config"
 
