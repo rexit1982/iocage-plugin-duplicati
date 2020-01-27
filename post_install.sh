@@ -11,7 +11,7 @@ sysrc "duplicati_enable=YES"
 mkdir -p $duplicati_conf_dir
 mkdir -p $duplicati_dir
 cd $duplicati_dir
-curl -o duplicati.zip $dlurl
+fetch $dlurl -o duplicati.zip
 unzip duplicati.zip
 rm duplicati.zip
 pw user add duplicati -c duplicati -d /nonexistent -s /usr/bin/nologin
