@@ -14,7 +14,7 @@ mkdir -p $duplicati_conf_dir
 mkdir -p $duplicati_dir
 echo 'get installer'
 cd $duplicati_dir
-fetch $dlurl -o duplicati.zip
+curl -o duplicati.zip $dlurl
 unzip duplicati.zip
 rm duplicati.zip
 echo 'create user and set perms'
