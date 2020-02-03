@@ -22,9 +22,15 @@ chown -R duplicati:duplicati $duplicati_conf_dir
 
 echo "Default Web password: duplicati" > /root/PLUGIN_INFO
 
+#Thank you Asigra via ConorBeh for this hack
+echo "Find Network IP"
+#Very Dirty Hack to get the ip for dhcp, the problem is that IOCAGE_PLUGIN_IP doesent work on DCHP clients
+netstat -nr | grep lo0 | grep -v '::' | grep -v '127.0.0.1' | awk '{print $1}' | head -n 1 > /root/dhcpip
+IP=`cat /root/dhcpip`
+
 # Start the service
 service duplicati start
 
 echo "------Plugin Info------"
-echo "Access the web interface to configure http://${IP}:8200"
+echo "Access Web interface to configure http://${IP}:8200"
 echo "Default Web Password: duplicati"
