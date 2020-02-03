@@ -24,7 +24,7 @@ echo "Default Web password: duplicati" > /root/PLUGIN_INFO
 
 # Start the service
 if $(service duplicati start) ; then
-    echo "Starting duplicati."
+   echo "Starting Duplicati."
 fi
 
 echo "------Plugin Info------"
