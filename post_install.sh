@@ -20,6 +20,9 @@ pw user add duplicati -c duplicati -d /nonexistent -s /usr/bin/nologin
 chown -R duplicati:duplicati $duplicati_dir
 chown -R duplicati:duplicati $duplicati_conf_dir
 
+echo "Default Web Interface password: duplicati" > /root/PLUGIN_INFO
+echo "Default Web Interface password: duplicati"
+
 # Start the service
 if $(service duplicati start) ; then
     echo "Starting duplicati."
