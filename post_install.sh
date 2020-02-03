@@ -23,9 +23,7 @@ chown -R duplicati:duplicati $duplicati_conf_dir
 echo "Default Web password: duplicati" > /root/PLUGIN_INFO
 
 # Start the service
-if $(service duplicati start) ; then
-   echo "Starting Duplicati."
-fi
+service duplicati start
 
 echo "------Plugin Info------"
 echo "Access the web interface to configure http://${IP}:8200"
