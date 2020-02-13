@@ -9,6 +9,10 @@ duplicati_conf_dir="/config"
 chmod u+x /usr/local/etc/rc.d/duplicati
 sysrc "duplicati_enable=YES"
 
+# Set rc.conf values for plugin editable values
+sysrc "duplicati_port=8200"
+sysrc "duplicati_web_pass=duplicati"
+
 # Create config and db dirs
 mkdir -p $duplicati_conf_dir
 mkdir -p $duplicati_dir
