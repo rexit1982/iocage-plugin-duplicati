@@ -12,7 +12,7 @@
                         "requirerestart": true
                 },
                 "webpass": {
-                        "type": "bool",
+                        "type": "string",
                         "name": "Web Interface Password",
                         "description": "Password to log into the web interface (do not use quotes)",
                         "default": "duplicati",
