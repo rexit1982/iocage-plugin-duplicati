@@ -1,5 +1,5 @@
 {
-        "servicerestart":"service duplicati stop && service duplicati start",
+        "servicerestart":"/usr/local/bin/duplicatirestart",
         "serviceget": "/usr/local/bin/duplicatiget",
         "serviceset": "/usr/local/bin/duplicatiset",
         "options": {

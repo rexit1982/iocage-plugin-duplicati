@@ -1,0 +1,5 @@
+#!/bin/sh
+
+/usr/sbin/service duplicati stop
+/usr/sbin/service duplicati start
+
