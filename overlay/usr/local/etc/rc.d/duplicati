@@ -24,6 +24,7 @@
 name="duplicati"
 rcvar="${name}_enable"
 load_rc_config $name
+sig_stop="SIGKILL"
 
 : ${duplicati_enable="NO"}
 : ${duplicati_user:="duplicati"}
