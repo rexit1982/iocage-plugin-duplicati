@@ -1,5 +1,6 @@
 #!/bin/sh
 
 /usr/sbin/service duplicati stop
+sleep 5
 /usr/sbin/service duplicati start
 

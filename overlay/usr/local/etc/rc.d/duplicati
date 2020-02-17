@@ -40,8 +40,11 @@ procname="/usr/local/bin/mono"
 command_args="-f -p ${pidfile} ${procname} ${duplicati_command}"
 command="/usr/sbin/daemon"
 
+
+
+/usr/local/bin/mono-service --debug -l:/config/duplicati.lock /usr/local/share/duplicati/Duplicati.Server.exe
 start_precmd=duplicati_precmd
-#stop_cmd=duplicati_stopcmd
+stop_cmd=duplicati_stopcmd
 
 duplicati_precmd() {
 	export XDG_CONFIG_HOME=${duplicati_data_dir}
@@ -52,6 +55,6 @@ duplicati_precmd() {
 	fi
 }
 
-#duplicati_stopcmd() { /bin/pkill -P $(/bin/cat ${pidfile}); }
+duplicati_stopcmd() { /bin/pkill -P $(/bin/cat ${pidfile}); }
 
 run_rc_command "$1"
