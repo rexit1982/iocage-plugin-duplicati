@@ -40,9 +40,6 @@ procname="/usr/local/bin/mono"
 command_args="-f -p ${pidfile} ${procname} ${duplicati_command}"
 command="/usr/sbin/daemon"
 
-
-
-/usr/local/bin/mono-service --debug -l:/config/duplicati.lock /usr/local/share/duplicati/Duplicati.Server.exe
 start_precmd=duplicati_precmd
 stop_cmd=duplicati_stopcmd
 
@@ -51,7 +48,7 @@ duplicati_precmd() {
 	export USER=${duplicati_user}
 
 	if [ ! -d ${duplicati_data_dir} ]; then
-		install -d -o ${duplicati_user} -g ${duplicati_group} ${duplicati_data_dir}
+		install -d -o ${duplicati_user} ${duplicati_data_dir}
 	fi
 }
 
