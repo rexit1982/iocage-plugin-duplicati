@@ -1,0 +1,23 @@
+{
+        "servicerestart":"/usr/local/bin/duplicatirestart",
+        "serviceget": "/usr/local/bin/duplicatiget",
+        "serviceset": "/usr/local/bin/duplicatiset",
+        "options": {
+                "port": {
+                        "type": "int",
+                        "name": "Duplicati Web Interface Port",
+                        "description": "Port for Duplicati web interface to listen on",
+                        "range": "1024-32000",
+                        "default": "8200",
+                        "requirerestart": true
+                },
+                "webpass": {
+                        "type": "string",
+                        "name": "Web Interface Password",
+                        "description": "Password to log into the web interface (do not use quotes)",
+                        "default": "duplicati",
+                        "requirerestart": true
+
+                }
+        }
+}
