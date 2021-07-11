@@ -20,7 +20,7 @@ cd $duplicati_dir
 fetch $dlurl -o duplicati.zip
 unzip duplicati.zip
 rm duplicati.zip
-pw user add duplicati -c duplicati -d /nonexistent -s /usr/bin/nologin
+pw user add duplicati -c duplicati -u 8200 -d /nonexistent -s /usr/bin/nologin
 chown -R duplicati:duplicati $duplicati_dir
 chown -R duplicati:duplicati $duplicati_conf_dir
 
