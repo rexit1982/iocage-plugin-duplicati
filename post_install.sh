@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #vars
-dlurl="https://updates.duplicati.com/beta/duplicati-2.0.5.1_beta_2020-01-18.zip"
+dlurl="https://updates.duplicati.com/beta/duplicati-2.0.6.3_beta_2021-06-17.zip"
 duplicati_dir="/usr/local/share/duplicati"
 duplicati_conf_dir="/config"
 
@@ -20,7 +20,7 @@ cd $duplicati_dir
 fetch $dlurl -o duplicati.zip
 unzip duplicati.zip
 rm duplicati.zip
-pw user add duplicati -c duplicati -d /nonexistent -s /usr/bin/nologin
+pw user add duplicati -c duplicati -u 8200 -d /nonexistent -s /usr/bin/nologin
 chown -R duplicati:duplicati $duplicati_dir
 chown -R duplicati:duplicati $duplicati_conf_dir
 
